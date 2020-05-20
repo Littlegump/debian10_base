@@ -7,6 +7,7 @@ ADD . /root
 RUN apt-get update && apt-get install -y python \
   supervisor \
   openssh-server \
+  libpcre3-dev \
   openssl \
   curl \
   libtool \
@@ -28,5 +29,7 @@ RUN apt-get update && apt-get install -y python \
   netcat \
   gnupg \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN /bin/bash install_ats.sh
 
 ENTRYPOINT ["/bin/bash","/root/entrypoint.sh"]
