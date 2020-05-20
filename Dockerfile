@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y python \
   supervisor \
   openssh-server \
   libpcre3-dev \
+  libz-dev \
   openssl \
   curl \
   libtool \
