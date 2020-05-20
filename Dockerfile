@@ -21,6 +21,9 @@ RUN apt-get update && apt-get install -y python \
   git \
   gcc \
   make \
+  flex \
+  hwloc \
+  lua5.3 \
   net-tools \
   netcat \
   gnupg \
