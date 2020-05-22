@@ -6,4 +6,6 @@ ADD . /root
 
 RUN bash install_rabbitmq_erlang.sh
 
+EXPOSE 5672 15672
+
 ENTRYPOINT ["/bin/bash","/root/entrypoint.sh"]
