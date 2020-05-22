@@ -1,29 +1,10 @@
-FROM debian:10.3
+FROM yinkaixuan0213/debian10_base:latest
 
 WORKDIR /root
 
 ADD . /root
 
-RUN apt-get update && apt-get install -y python \
-  supervisor \
-  openssh-server \
-  openssl \
-  curl \
-  libtool \
-  tcpdump \
-  vim \
-  libssl-dev \
-  psmisc \
-  wget \
-  man-db \
-  apt-transport-https \
-  python-pip \
-  git \
-  gcc \
-  make \
-  net-tools \
-  netcat \
-  gnupg \
-  && apt-get clean && rm -rf /var/lib/apt/lists/*
+#RUN bash install_erlang_rabbitmq.sh
+
 
 ENTRYPOINT ["/bin/bash","/root/entrypoint.sh"]
