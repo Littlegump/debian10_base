@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # author: urBearDaddy
 # ref: https://www.rabbitmq.com/install-debian.html#apt-bintray-erlang
 
@@ -7,18 +6,17 @@
 curl -fsSL https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc | apt-key add -
 apt-key adv --keyserver "hkps://keys.openpgp.org" --recv-keys "0x0A9AF2115F4687BD29803A206B73A36E6026DFCA"
 
-
 # add buster source
 # debian 9 might use Stretch
 # ref: https://www.rabbitmq.com/install-debian.html#erlang-apt-https-transport
-cat <<EOF >> /etc/apt/sources.list.d/erlang.list
+echo """
 deb https://dl.bintray.com/rabbitmq-erlang/debian buster erlang-21.x
 deb https://dl.bintray.com/rabbitmq/debian bionic main
-EOF
+""" > /etc/apt/sources.list.d/rabbitmq_erlang.list
 
 # we can use --fix-missing to solve the problem of the erlang dependency
 # or u'll use apt-get install erlang* like below
-apt-get install rabbitmq-server -y --fix-missing
+apt-get update -y && apt-get install rabbitmq-server -y --fix-missing
 
 
 # install erlang
