@@ -4,7 +4,6 @@ WORKDIR /root
 
 ADD . /root
 
-#RUN bash install_erlang_rabbitmq.sh
-
+RUN bash install_rabbitmq_erlang.sh
 
 ENTRYPOINT ["/bin/bash","/root/entrypoint.sh"]
