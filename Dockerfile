@@ -52,6 +52,7 @@ RUN apt-get update && apt-get install -y python \
   && apt-get clean && rm -rf /var/lib/apt/lists/* \
   && python -m pip install --upgrade pip \
   && pip install -U setuptools
-
+ 
+EXPOSE 32200 514
 
 ENTRYPOINT ["/bin/bash","/root/entrypoint.sh"]
