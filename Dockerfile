@@ -15,6 +15,8 @@ RUN apt-get update && apt-get install -y python \
   iptstate \
   openssl \
   curl \
+  mtr \
+  dig \
   libtool \
   rsync \
   tcpdump \
