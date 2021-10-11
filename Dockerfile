@@ -54,7 +54,16 @@ RUN apt-get update && apt-get install -y python \
   && apt-get clean && rm -rf /var/lib/apt/lists/* \
   && python -m pip install --upgrade pip \
   && pip install -U setuptools
- 
+
+# etcd installed
+RUN wget https://golang.org/dl/go1.17.2.linux-amd64.tar.gz \
+  && rm -rf /usr/local/go && tar -C /usr/local -xzf go1.17.2.linux-amd64.tar.gz \
+  && export PATH=$PATH:/usr/local/go/bin \
+  && git clone -b v3.5.0 https://github.com/etcd-io/etcd.git \
+  && cd etcd \
+  && ./build.sh \
+  && export PATH="$PATH:`pwd`/bin"
+
 EXPOSE 32200 514
 
 ENTRYPOINT ["/bin/bash","/root/entrypoint.sh"]
